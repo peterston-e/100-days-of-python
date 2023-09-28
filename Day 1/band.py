@@ -1,5 +1,5 @@
 # 1. Create a greeting for your program.
-x
+
 print("hello and welcome./nto discover your band name")
 
 city = input("what town did you grow up in? \n")
