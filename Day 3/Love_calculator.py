@@ -22,6 +22,7 @@ o = concat_name.count('o')
 v = concat_name.count('v')
 e_1 = concat_name.count('e')
 
+
 word_1 = t + r + u + e
 word_2 = l + o + v + e_1
 
