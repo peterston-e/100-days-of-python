@@ -43,7 +43,7 @@ possible_outcomes = [row1, row2, row3]
 user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
 if user_choice >= 3 or user_choice < 0:
   print("You chose an invalid number try again")
-  exit()
+  exit(l)
 else:
     print(pictures[user_choice])
 
