@@ -1,13 +1,20 @@
 from random import choice
-print("BLACKJACK")
-# print("\U0001f600")
-# print("\U0001f928")
 
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,]
-
-# print(choice(cards))
-
-# function returns 'n' number of random cards from card list
+cards = [
+    11,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    10,
+    10,
+    10,
+]
 
 
 def deal(n):
@@ -42,20 +49,16 @@ while blackjack == True:
         # deal user and computer cards
         user_cards = deal(2)
         computer_cards = deal(2)
-
         # sum cards
         sum_of_user_cards = sum_cards(user_cards)
         sum_of_computer_cards = sum_cards(computer_cards)
-
         print_cards()
 
         # while loop control variable
         user_draws = True
         while user_draws:
-            continue_play = input(
-                "Type 'y' to get another card, type 'n' to pass: ")
+            continue_play = input("Type 'y' to get another card, type 'n' to pass: ")
             if continue_play == "y":
-
                 new_card = deal(1)
                 user_cards.append(new_card[0])
 
@@ -63,13 +66,15 @@ while blackjack == True:
                 sum_of_user_cards = sum_cards(user_cards)
                 if sum_of_user_cards > 21:
                     print(
-                        f"  Your final hand: {user_cards}, final score: {sum_of_user_cards}")
+                        f"  Your final hand: {user_cards}, final score: {sum_of_user_cards}"
+                    )
                     user_draws = False
                 elif sum_of_user_cards <= 21:
                     print_cards()
             else:
                 print(
-                    f"  Your final hand: {user_cards}, final score: {sum_of_user_cards}")
+                    f"  Your final hand: {user_cards}, final score: {sum_of_user_cards}"
+                )
                 user_draws = False
 
         # while loop control variable
@@ -84,7 +89,8 @@ while blackjack == True:
         computer_final_score = sum_cards(computer_cards)
         user_final_score = sum_cards(user_cards)
         print(
-            f"  Computer's final hand: {computer_cards}, final score: {computer_final_score}")
+            f"  Computer's final hand: {computer_cards}, final score: {computer_final_score}"
+        )
 
         if user_final_score > computer_final_score and user_final_score <= 21:
             print("You Win! \U0001f600")
@@ -97,7 +103,6 @@ while blackjack == True:
     else:
         print("Goodbye and good luck!")
         blackjack = False
-
 
 ############### Blackjack Project #####################
 
