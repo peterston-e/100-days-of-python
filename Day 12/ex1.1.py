@@ -33,8 +33,6 @@ def game():
 
     turns = set_difficulty()
 
-    
-
     guess = 0
     while guess != answer:
         print(f"You have {turns} attempts remaining to guess the number.")
