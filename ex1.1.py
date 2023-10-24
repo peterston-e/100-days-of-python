@@ -29,8 +29,7 @@ def game():
     print("Welcome to the guessing game")
     print("I'm thinking of a number between 1 and 100")
 
-    answer = randint(1, 100)
-    print(f"The answer is {answer}")   
+    answer = randint(1, 100)   
 
     turns = set_difficulty()
 
