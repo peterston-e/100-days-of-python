@@ -5,7 +5,7 @@ from game_data import data
 import os
 
 def compair(list):
-    """returns True if user guesses correctly and False if incorect"""
+    """Takes a list of 2 random accouunts in data. returns True if user guesses correctly and False if incorect"""
     a = list[0]['follower_count']
     b = list[1]['follower_count']
 
@@ -37,6 +37,10 @@ def game():
         # populate the list with random dict (people) from data
         for _ in range(0, 2):
             rand_list.append(choice(data))
+        # check if both items are the same 
+        if rand_list[0] == rand_list[1]:
+            while rand_list[0] == rand_list[1]:
+                rand_list[1] = choice(data)
 
         # ********** uncoment line below for testing ****************
         # print(f"count A = {rand_list[0]['follower_count']}... count B = {rand_list[1]['follower_count']}")
@@ -47,13 +51,13 @@ def game():
         # print vs askii
         print(vs)
 
-        # print(f"Against B: {B_name}, a {B_description}, from {B_country}.")
+        # print the name and description of B
         print(f"Against B: {rand_list[1]['name']}, a {rand_list[1]['description']}, from {rand_list[1]['country']}.")
 
         if not compair(rand_list):
             print(os.system("clear"))
             print(logo)
-            print(f"Sorry, that's wrong. Final score: {score}")
+            print(f"Sorry, that's wrong. Final score: {score}.")
             return
         else:
             print(os.system("clear"))
