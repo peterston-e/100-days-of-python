@@ -1,18 +1,66 @@
 # Import random module or maybe just .chose()
+from random import choice
+from art import logo, vs
+from game_data import data
+import os
 
-# print Askii art higher lower
+def compair(list):
+    """returns True if user guesses correctly and False if incorect"""
+    a = list[0]['follower_count']
+    b = list[1]['follower_count']
 
-# save random person from the list to variable A
-# save random person from the list to variabke B
+    choice = input("Who has more followers? Type 'A' or 'B': ").upper()
 
-# print(f"Compare A: {A_name}, a {A_description}, from {A_country}.")
+    if choice == "A" and a > b:
+        return True
+    elif choice == "B" and b > a:
+        return True
+    else:
+        return False
 
-# print vs askii
+def swap(list):
+    """swaps list index 1 with index 0 and generates new random item in position index 1. returns new list"""
+    list[0] = list[1]
+    list[1] = choice(data)
+    return list
 
-# print(f"Against B: {B_name}, a {B_description}, from {B_country}.")
+# define the game() 
+def game():
+    play_on = True
+    # while loop
+    while play_on:
+        # keep track of score = 0
+        score = 0
 
-# create a compair function
+        # create empty list to store two dicts in
+        rand_list = []
 
-# create swap function for B to A
+        # populate the list with random dict (people) from data
+        for _ in range(0, 2):
+            rand_list.append(choice(data))
 
-# save new random person to B variable 
+        print(f"count A = {rand_list[0]['follower_count']}... count B = {rand_list[1]['follower_count']}")
+
+        # print the name and descriton of A
+        print(f"Compare A: {rand_list[0]['name']}, a {rand_list[0]['description']}, from {rand_list[0]['country']}.")
+
+        # print vs askii
+        print(vs)
+
+        # print(f"Against B: {B_name}, a {B_description}, from {B_country}.")
+        print(f"Against B: {rand_list[1]['name']}, a {rand_list[1]['description']}, from {rand_list[1]['country']}.")
+
+        if not compair(rand_list):
+            print(os.system("clear"))
+            print(logo)
+            print(f"Sorry, that's wrong. Final score: {score}")
+            return
+        else:
+            print(os.system("clear"))
+            print(logo)
+            score += 1
+            print(f"You're right! Current score: {score}.")
+            rand_list = swap(rand_list)
+
+print(logo)
+game()
