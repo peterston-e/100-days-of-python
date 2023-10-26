@@ -26,11 +26,9 @@ def swap(list):
 
 # define the game() 
 def game():
-    play_on = True
     score = 0
     # while loop
     while True:
-
         # create empty list to store two dicts in
         rand_list = []
         # populate the list with random dict (people) from data
