@@ -27,10 +27,9 @@ def swap(list):
 # define the game() 
 def game():
     play_on = True
+    score = 0
     # while loop
     while play_on:
-        # keep track of score = 0
-        score = 0
 
         # create empty list to store two dicts in
         rand_list = []
@@ -39,7 +38,8 @@ def game():
         for _ in range(0, 2):
             rand_list.append(choice(data))
 
-        print(f"count A = {rand_list[0]['follower_count']}... count B = {rand_list[1]['follower_count']}")
+        # ********** uncoment line below for testing ****************
+        # print(f"count A = {rand_list[0]['follower_count']}... count B = {rand_list[1]['follower_count']}")
 
         # print the name and descriton of A
         print(f"Compare A: {rand_list[0]['name']}, a {rand_list[0]['description']}, from {rand_list[0]['country']}.")
@@ -62,5 +62,6 @@ def game():
             print(f"You're right! Current score: {score}.")
             rand_list = swap(rand_list)
 
+print(os.system("reset"))
 print(logo)
 game()
